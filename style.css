@@ -1,0 +1,115 @@
+.grid-container{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 10px;
+}
+.grid-container input{
+    height: 30px;
+    background-color: #f6f6f6;
+    border: none;
+    padding: 8px;
+}
+.grid-container input::placeholder{ 
+    color: #000;
+}
+.grid-container2{
+    display: grid;
+    grid-template-columns: auto auto ;
+    gap: 10px;       
+}
+.grid-container2 input{
+    height: 50px;
+    background-color: #f6f6f6;
+    border: none;
+    padding: 8px;
+}
+.grid-container2 input::placeholder{ 
+    color: #000;
+}
+.grid-container3{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;       
+}
+.grid-container3 input{
+    height: 30px;
+    background-color: #f6f6f6;
+    border: none;
+    padding: 8px;
+}
+.grid-container3 input::placeholder{ 
+    color: #000;
+}
+span{
+    margin-top: 20px;
+    font-weight: bold;
+}
+.btns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+   
+}
+button{
+    padding: 8px;
+    border-radius: 5px;
+
+    
+}
+.savebtn{
+    background-color:#000;
+    color: white;
+}
+.sidebar {
+    height: 100vh;
+    width: 50px;
+    /* position: fixed; */
+    top: 0;
+    left: 0;
+    background-color: #333;
+    padding-top: 20px;
+}
+
+.sidebar a {
+    padding: 10px;
+    display: block;
+    color: white;
+    text-decoration: none;
+    
+}
+.sidebar a .fa{
+  font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.sidebar a:hover {
+    background-color: #555;
+}
+
+
+/* For responsive layout */
+@media screen and (max-width: 600px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    .sidebar a {
+        float: left;
+    }
+    .content {
+        margin-left: 0;
+    }
+}
+.customer-sde{
+    padding: 10px;
+    width: 100%;
+}
+.company-list{
+    display: flex;
+    gap: 30px;
+}
+.company-list li{
+    list-style: none;
+}

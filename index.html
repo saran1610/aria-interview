@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="./style.css">
+<title>Form Data Display</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<div style="display: flex;flex-direction: row;">
+
+   
+<div class="sidebar">
+    <a href="#"><i class="fa fa-th-large" aria-hidden="true"></i></a>
+    <a href="#"><i class="fa fa-bars" aria-hidden="true"></i></a>
+    <a href="display.html"><i class="fa fa-user" aria-hidden="true"></i></a>
+    <a href="#"><i class="fa fa-cart-plus" aria-hidden="true"></i></a>
+    <a href="#"><i class="fa fa-th" aria-hidden="true"></i></a>
+    <a href="#"><i class="fa fa-book" aria-hidden="true"></i></a>
+    <a href="#"><i class="fa fa-cog" aria-hidden="true"></i></a>
+</div>
+<div class="customer-sde">
+
+
+    <h2>Customer Creation</h2>
+    <div class="company-list">
+        <li>COMPANY DETAILS</li>
+        <li>BILLING & SHIPPING DETAILS</li>
+        <li>KYC DOCUMENTS</li>
+    </div>
+    
+    <hr>
+
+    
+    <form id="recordForm" action="display.html" method="GET">
+        <span>Company Details</span>
+       <div class="grid-container">
+       
+        <input type="text" id="name" name="name" placeholder="Company Name" required>
+        <input type="text" id="gstin" name="gstin" placeholder="GSTIN Number" required>
+        <input type="text" id="import" name="import" placeholder="Import Export Number" required>
+        <input type="text" id="Number" name="Number" placeholder="Phone Number" required>
+
+        <input type="email" id="email" name="email" placeholder="Email" required>
+        <input type="text" id="Website" name="Website" placeholder="Website" required>
+       </div>
+       <br> <br>
+       <span>Address Details</span>
+       <div class="grid-container2">
+        <input type="text" id="Address" name="Address" placeholder="Address Line 1" required>
+        <input type="text" id="Address2" name="Address2" placeholder="Address Line 2" required>
+       
+       </div>
+       <br> <br>
+       <div class="grid-container">
+        <input type="text" id="City" name="City" placeholder="City " required>
+        <input type="text" id="State" name="State" placeholder="State " required>
+        <input type="text" id="Pincode" name="Pincode" placeholder="Pincode " required>
+       </div>
+       <br>
+       <span>Contact Details</span>
+       <div class="grid-container">
+        <input type="text" id="POC" name="POC" placeholder="POC Name " required>
+        <input type="text" id="Job" name="Job" placeholder="Job Title" required>
+        <input type="text" id="Contact" name="Contact" placeholder="Contact Number 1" required>
+        <input type="text" id="Contact2" name="Contact2" placeholder="Contact Number 2" required>
+        <input type="email" id="contactemail" name="contactemail" required placeholder="Contact Email ID">
+       </div>
+       <br>
+       <span>Address Details</span>
+        <div class="grid-container3">
+            <input type="text" id="Authorized" name="Authorized" placeholder="Authorized Person Name" required>
+            <input type="text" id="Designation" name="Designation" placeholder="Authorized Person Designation" required>
+            <input type="text" id="contactnum" name="contactnum" placeholder="Authorized Person Contact Number" required>
+            <input type="text" id="contactnum2" name="contactnum2" placeholder="Authorized Person Contact Number" required>
+        </div>
+
+        <br>
+
+
+      
+        <div class="btns">
+            <button type="submit">Cancel</button>
+            <button type="submit" class="savebtn">Save & Continue</button>
+        </div>
+       
+    </form>
+</div>
+</div> 
+    <script>
+      
+        function toggleSidebar() {
+            var sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('active');
+        }
+    </script>
+
+
+
+<script>
+    document.getElementById("recordForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+       
+
+        const gstin = document.getElementById('gstin').value;
+            const name = document.getElementById('name').value;
+            const Number = document.getElementById('Number').value;
+           
+            const email = document.getElementById('email').value;
+            const Address = document.getElementById('Address').value;
+            const Authorized = document.getElementById('Authorized').value;
+
+ 
+        const newRecord = { gstin, name, Number, email, Address, Authorized };
+
+      
+        const existingRecords = JSON.parse(localStorage.getItem("records")) || [];
+
+ 
+        existingRecords.push(newRecord);
+
+
+        localStorage.setItem("records", JSON.stringify(existingRecords));
+
+      
+        document.getElementById("gstin").value = "";
+        document.getElementById("name").value = "";
+        document.getElementById("Number").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("Address").value = "";
+        document.getElementById("Authorized").value = "";
+
+        window.location.href = "display.html";
+    });
+</script>
+</body>
+</html>

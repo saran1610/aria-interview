@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="./display.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>Display Data</title>
+</head>
+<body>
+    <div class="container-main">
+        <div class="sidebar">
+            <a href="#"><i class="fa fa-th-large" aria-hidden="true"></i></a>
+            <a href="index.html"><i class="fa fa-bars" aria-hidden="true"></i></a>
+            <a href="#"><i class="fa fa-user" aria-hidden="true"></i></a>
+            <a href="#"><i class="fa fa-cart-plus" aria-hidden="true"></i></a>
+            <a href="#"><i class="fa fa-th" aria-hidden="true"></i></a>
+            <a href="#"><i class="fa fa-book" aria-hidden="true"></i></a>
+            <a href="#"><i class="fa fa-cog" aria-hidden="true"></i></a>
+        </div>
+        <div class="customer-sde">
+            <h2>Customer Creation</h2>
+            <div class="container">
+                <div class="customers">
+                    <div><i class="fa fa-user" aria-hidden="true"></i></div>
+                    <div style="display: flex;flex-direction: column;">
+                        <div>Total Customers</div>
+                        <div>0</div>
+                    </div>
+                    
+                   
+                </div>
+                <div class="customers">
+                    <div><i class="fa fa-user" aria-hidden="true"></i></div>
+                    <div style="display: flex;flex-direction: column;">
+                        <div>Active Customers</div>
+                        <div>0</div>
+                    </div>
+                    
+                </div>
+                <div class="customers">
+                    <div><i class="fa fa-user" aria-hidden="true"></i></div>
+                    <div style="display: flex;flex-direction: column;">
+                        <div>Inactive Customers</div>
+                        <div>0</div>
+                    </div>
+                   
+                </div>
+                <div class="customers">
+                    <div><i class="fa fa-inr" aria-hidden="true"></i></div>
+                    <div style="display: flex;flex-direction: column;">
+                        <div>Credit Customers</div>
+                        <div>0</div>
+                    </div>
+                   
+                </div>
+                <div class="customers">
+                    <div><i class="fa fa-inr" aria-hidden="true"></i></div>
+                    <div style="display: flex;flex-direction: column;">
+                        <div>Cash In Advance</div>
+                        <div>0</div>
+                    </div>
+                 
+                </div>
+            </div>
+            <div class="grid-container">
+                <div class="grid-container3">
+                   <input type="search" placeholder="search">
+                    <button><i class="fa fa-plus me-4" aria-hidden="true" style="margin-right: 10px;"></i> Add Customer</button>
+                    <button class="btn2"><i class="fa fa-upload" aria-hidden="true" style="margin-right: 10px;"></i>Import Customers</button>
+                        
+                </div>
+                <div class="grid-container buttons">
+                  <button><i class="fa fa-print"  aria-hidden="true"   style="margin-right: 10px;"></i>Print</button>
+                  <button><i class="fa fa-download" aria-hidden="true"  style="margin-right: 10px;"></i>Download</button>
+                </div>
+            </div><br><br>
+            
+          
+        
+            <table>
+                <thead>
+                    <tr>
+                        <th>Customer ID</th>
+                        <th>Customer Company</th>
+                        <th>Phone Number</th>
+                        <th>Email ID</th>
+                        <th>Address</th>
+                        <th>Authorized Person Name</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                   
+                </tbody>
+            </table>
+            <button onclick="navigateToAddPage()">Add</button>
+        
+        </div>
+
+    </div>
+    
+
+<script>
+    function navigateToAddPage() {
+        window.location.href = "index.html";
+    }
+
+
+    const records = JSON.parse(localStorage.getItem("records")) || [];
+    const tableBody = document.getElementById("tableBody");
+    records.forEach(record => {
+        const newRow = `<tr>
+            <td>${record.gstin}</td>
+            <td>${record.name}</td>
+            <td>${record.Number}</td>
+            <td>${record.email}</td>
+            <td>${record.Address}</td>
+            <td>${record.Authorized}</td>
+            </tr>`;
+        tableBody.insertAdjacentHTML("beforeend", newRow);
+    });
+</script>
+</body>
+</html>
